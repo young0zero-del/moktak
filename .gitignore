@@ -1,0 +1,6 @@
+.DS_Store
+*.zip
+Menu-Ground-Shadow-Plugin/
+tools/
+*.md
+!README.md

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>음식 메뉴 블라인드 게임</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 시작 화면 -->
+    <div id="start-screen" class="screen active">
+        <div class="container">
+            <h1 class="title">🍔 음식 메뉴 맞추기 게임</h1>
+            <p class="subtitle">30초 안에 브랜드와 메뉴를 맞춰보세요!</p>
+            <button id="start-btn" class="btn btn-primary">게임 시작</button>
+        </div>
+    </div>
+
+    <!-- 게임 화면 -->
+    <div id="game-screen" class="screen">
+        <div class="game-header">
+            <div class="score-board">
+                <span class="label">점수</span>
+                <span id="current-score" class="score">0</span>
+            </div>
+            <div class="question-counter">
+                <span id="current-question">1</span> / <span id="total-questions">16</span>
+            </div>
+            <div class="timer">
+                <span class="label">⏱️</span>
+                <span id="timer" class="time">30</span>
+            </div>
+        </div>
+
+        <div class="game-content">
+            <div class="food-image-container">
+                <img id="food-image" src="" alt="음식 이미지">
+            </div>
+
+            <div class="quiz-container">
+                <h2 class="question">이 음식의 브랜드와 메뉴 이름은?</h2>
+                <div id="options" class="options"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 결과 화면 -->
+    <div id="result-screen" class="screen">
+        <div class="container">
+            <div id="result-animation" class="result-animation"></div>
+            <h1 id="result-title" class="result-title"></h1>
+            <div class="result-stats">
+                <div class="stat">
+                    <span class="stat-label">최종 점수</span>
+                    <span id="final-score" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">정답률</span>
+                    <span id="accuracy" class="stat-value">0%</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">등수</span>
+                    <span id="rank" class="stat-value">-</span>
+                </div>
+            </div>
+            <div id="rank-message" class="rank-message"></div>
+            <button id="restart-btn" class="btn btn-primary">다시 하기</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
