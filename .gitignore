@@ -1,6 +1,32 @@
+# macOS
 .DS_Store
+
+# 빌드 파일
 *.zip
-Menu-Ground-Shadow-Plugin/
+dist/
+build/
+
+# 개발 도구
 tools/
+Menu-Ground-Shadow-Plugin/
+
+# 문서 (README 제외)
 *.md
 !README.md
+
+# 환경 변수
+.env
+.env.local
+
+# 로그
+*.log
+npm-debug.log*
+
+# 에디터
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 임시 파일
+*.tmp
