@@ -1210,8 +1210,18 @@
             // 모바일 vs 데스크톱 크기 설정
             const container = document.getElementById('canvas-container');
             const isMobile = window.innerWidth <= 768;
-            const width = isMobile ? container.clientWidth : window.innerWidth;
-            const height = isMobile ? container.clientHeight : window.innerHeight;
+            let width, height;
+            
+            if (isMobile) {
+                // 모바일: container가 아직 크기가 없을 수 있으므로 window 사용
+                width = window.innerWidth;
+                height = Math.max(container.clientHeight, 400); // 최소 400px
+            } else {
+                width = window.innerWidth;
+                height = window.innerHeight;
+            }
+            
+            console.log('📐 Canvas 크기:', width, 'x', height);
             
             renderer.setSize(width, height);
             renderer.setPixelRatio(quality.pixelRatio);
@@ -1255,7 +1265,7 @@
             setTimeout(() => {
                 document.getElementById('loading').classList.add('hidden');
                 console.log('✅ 초기화 완료');
-            }, 1000);
+            }, 500);  // 1000 → 500ms로 단축
         }
         
         // 조명 설정
@@ -2113,8 +2123,15 @@
                 // 모바일 vs 데스크톱 크기 설정
                 const container = document.getElementById('canvas-container');
                 const isMobile = window.innerWidth <= 768;
-                const width = isMobile ? container.clientWidth : window.innerWidth;
-                const height = isMobile ? container.clientHeight : window.innerHeight;
+                let width, height;
+                
+                if (isMobile) {
+                    width = window.innerWidth;
+                    height = Math.max(container.clientHeight, 400);
+                } else {
+                    width = window.innerWidth;
+                    height = window.innerHeight;
+                }
                 
                 camera.aspect = width / height;
                 camera.updateProjectionMatrix();
@@ -2169,11 +2186,15 @@
         // 시작
         async function start() {
             try {
+                console.log('🚀 앱 시작...');
                 await waitForThree();
+                console.log('🎨 초기화 시작...');
                 init();
+                console.log('🎉 앱 준비 완료!');
             } catch (error) {
                 console.error('❌ 초기화 실패:', error);
-                document.getElementById('loading').innerHTML = '<div class="loading-text" style="color: red;">Three.js 로딩 실패<br>페이지를 새로고침 해주세요</div>';
+                const loadingEl = document.getElementById('loading');
+                loadingEl.innerHTML = '<div class="loading-text" style="color: red;">로딩 실패<br>페이지를 새로고침 해주세요<br><small>' + error.message + '</small></div>';
             }
         }
         
