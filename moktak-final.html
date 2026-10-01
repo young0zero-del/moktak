@@ -381,8 +381,142 @@
             margin: 0;
         }
 
-        /* 반응형 */
-        @media (max-width: 768px) {
+        /* 반응형 - 소형 스마트폰 (아이폰 SE, 미니 등) */
+        @media (max-width: 375px) {
+            header {
+                padding: 12px 15px;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .merit-counter {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
+
+            .merit-number {
+                font-size: 0.9rem;
+            }
+
+            .instruction {
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+            }
+
+            .tap-hint {
+                font-size: 0.75rem;
+                bottom: -80px;
+            }
+
+            .bottom-controls {
+                padding: 15px;
+            }
+
+            .control-group {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .control-group label {
+                font-size: 0.8rem;
+                min-width: auto;
+            }
+
+            .slider-container {
+                width: 100%;
+            }
+
+            .value-display {
+                font-size: 0.8rem;
+            }
+
+            .button-group {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            button {
+                flex: 1;
+                min-width: calc(50% - 5px);
+                padding: 10px 12px;
+                font-size: 0.8rem;
+            }
+
+            .hit-message {
+                font-size: 1.2rem;
+                padding: 8px 15px;
+            }
+        }
+
+        /* 반응형 - 중형 스마트폰 (아이폰 12/13/14, 갤럭시 S 시리즈) */
+        @media (min-width: 376px) and (max-width: 430px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                font-size: 1.15rem;
+            }
+
+            .merit-counter {
+                padding: 7px 14px;
+                font-size: 0.8rem;
+            }
+
+            .merit-number {
+                font-size: 0.95rem;
+            }
+
+            .instruction {
+                font-size: 1rem;
+            }
+
+            .tap-hint {
+                font-size: 0.8rem;
+                bottom: -90px;
+            }
+
+            .bottom-controls {
+                padding: 18px;
+            }
+
+            .control-group {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .control-group label {
+                font-size: 0.85rem;
+                min-width: auto;
+            }
+
+            .slider-container {
+                width: 100%;
+            }
+
+            .button-group {
+                width: 100%;
+            }
+
+            button {
+                flex: 1;
+                min-width: calc(50% - 5px);
+                padding: 11px 14px;
+                font-size: 0.85rem;
+            }
+
+            .hit-message {
+                font-size: 1.4rem;
+                padding: 10px 18px;
+            }
+        }
+
+        /* 반응형 - 대형 스마트폰 (아이폰 Pro Max, 갤럭시 Ultra) */
+        @media (min-width: 431px) and (max-width: 768px) {
             header {
                 padding: 15px 20px;
             }
@@ -398,6 +532,10 @@
 
             .merit-number {
                 font-size: 1rem;
+            }
+
+            .instruction {
+                font-size: 1.05rem;
             }
 
             .bottom-controls {
@@ -425,6 +563,105 @@
             button {
                 flex: 1;
                 min-width: calc(50% - 5px);
+            }
+        }
+
+        /* 반응형 - 태블릿 (아이패드, 갤럭시 탭) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            header {
+                padding: 18px 30px;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .merit-counter {
+                padding: 10px 18px;
+                font-size: 0.9rem;
+            }
+
+            .instruction {
+                font-size: 1.15rem;
+            }
+
+            .bottom-controls {
+                padding: 25px 30px;
+            }
+
+            .control-panel {
+                max-width: 700px;
+            }
+        }
+
+        /* 가로 모드 최적화 */
+        @media (max-height: 600px) and (orientation: landscape) {
+            header {
+                padding: 10px 20px;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .merit-counter {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
+            .instruction {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+
+            .tap-hint {
+                bottom: -60px;
+                font-size: 0.75rem;
+            }
+
+            .bottom-controls {
+                padding: 12px 20px;
+            }
+
+            .control-group {
+                gap: 8px;
+            }
+
+            .control-group label {
+                font-size: 0.8rem;
+            }
+
+            button {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+
+            .hit-message {
+                font-size: 1.1rem;
+                padding: 6px 12px;
+            }
+        }
+
+        /* 터치 영역 확대 (모바일) */
+        @media (hover: none) and (pointer: coarse) {
+            button {
+                min-height: 44px;
+                padding: 12px 16px;
+            }
+
+            input[type="range"] {
+                height: 8px;
+                cursor: pointer;
+            }
+
+            input[type="range"]::-webkit-slider-thumb {
+                width: 20px;
+                height: 20px;
+            }
+
+            input[type="range"]::-moz-range-thumb {
+                width: 20px;
+                height: 20px;
             }
         }
     </style>
@@ -536,6 +773,72 @@
 
     <script>
         console.log('🎬 목탁 앱 시작');
+        
+        // 디바이스 감지 유틸리티
+        const DeviceDetector = {
+            getDeviceType() {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                
+                // 소형 스마트폰 (아이폰 SE, 미니)
+                if (width <= 375) {
+                    return { type: 'small-phone', particles: { snow: 200, leaves: 100 } };
+                }
+                // 중형 스마트폰 (아이폰 12/13/14, 갤럭시 S)
+                else if (width <= 430) {
+                    return { type: 'medium-phone', particles: { snow: 300, leaves: 150 } };
+                }
+                // 대형 스마트폰 (아이폰 Pro Max, 갤럭시 Ultra)
+                else if (width <= 768) {
+                    return { type: 'large-phone', particles: { snow: 400, leaves: 200 } };
+                }
+                // 태블릿
+                else if (width <= 1024 && isTouch) {
+                    return { type: 'tablet', particles: { snow: 500, leaves: 250 } };
+                }
+                // 데스크톱
+                else {
+                    return { type: 'desktop', particles: { snow: 600, leaves: 300 } };
+                }
+            },
+            
+            isLandscape() {
+                return window.innerWidth > window.innerHeight;
+            },
+            
+            getOptimalQuality() {
+                const device = this.getDeviceType();
+                const pixelRatio = window.devicePixelRatio || 1;
+                
+                // 성능 최적화
+                if (device.type === 'small-phone') {
+                    return { 
+                        antialias: false, 
+                        shadowMapSize: 512,
+                        pixelRatio: Math.min(pixelRatio, 1.5)
+                    };
+                } else if (device.type === 'medium-phone') {
+                    return { 
+                        antialias: true, 
+                        shadowMapSize: 1024,
+                        pixelRatio: Math.min(pixelRatio, 2)
+                    };
+                } else {
+                    return { 
+                        antialias: true, 
+                        shadowMapSize: 2048,
+                        pixelRatio: Math.min(pixelRatio, 2)
+                    };
+                }
+            }
+        };
+        
+        // 디바이스 정보 로깅
+        const deviceInfo = DeviceDetector.getDeviceType();
+        console.log('📱 디바이스:', deviceInfo.type);
+        console.log('📐 화면:', window.innerWidth, 'x', window.innerHeight);
+        console.log('🎨 픽셀비율:', window.devicePixelRatio);
         
         // Three.js 로딩 대기
         function waitForThree() {
@@ -773,16 +1076,25 @@
             camera.position.set(0, 1.5, 3);
             camera.lookAt(0, 0.5, 0);
             
-            // Renderer
+            // Renderer (디바이스 최적화)
+            const quality = DeviceDetector.getOptimalQuality();
             renderer = new THREE.WebGLRenderer({ 
-                antialias: true,
-                alpha: true 
+                antialias: quality.antialias,
+                alpha: true,
+                powerPreference: deviceInfo.type === 'small-phone' ? 'low-power' : 'high-performance'
             });
             renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.setPixelRatio(quality.pixelRatio);
+            
+            // 그림자 최적화
+            if (quality.shadowMapSize) {
+                renderer.shadowMap.enabled = true;
+                renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            }
+            
             document.getElementById('canvas-container').appendChild(renderer.domElement);
             
-            console.log('✅ Renderer 생성');
+            console.log('✅ Renderer 생성 (품질:', quality.antialias ? 'High' : 'Medium', ')');
             
             // 조명
             setupLights();
@@ -945,8 +1257,8 @@
                 snowParticles.material.dispose();
             }
             
-            const isMobile = window.innerWidth < 768;
-            const particleCount = isMobile ? 300 : 600;
+            const deviceInfo = DeviceDetector.getDeviceType();
+            const particleCount = deviceInfo.particles.snow;
             
             const geometry = new THREE.BufferGeometry();
             const positions = new Float32Array(particleCount * 3);
@@ -1088,8 +1400,8 @@
                 leavesParticles.material.dispose();
             }
             
-            const isMobile = window.innerWidth < 768;
-            const particleCount = isMobile ? 150 : 300;
+            const deviceInfo = DeviceDetector.getDeviceType();
+            const particleCount = deviceInfo.particles.leaves;
             
             const geometry = new THREE.BufferGeometry();
             const positions = new Float32Array(particleCount * 3);
@@ -1664,9 +1976,29 @@
             
             // 리사이즈
             window.addEventListener('resize', () => {
+                // 디바이스 타입 재감지 (회전/크기 변경)
+                const newDeviceInfo = DeviceDetector.getDeviceType();
+                const quality = DeviceDetector.getOptimalQuality();
+                
                 camera.aspect = window.innerWidth / window.innerHeight;
                 camera.updateProjectionMatrix();
                 renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(quality.pixelRatio);
+                
+                // 파티클 수 재조정 (필요시)
+                if (newDeviceInfo.type !== deviceInfo.type) {
+                    console.log('📱 디바이스 타입 변경:', deviceInfo.type, '→', newDeviceInfo.type);
+                    Object.assign(deviceInfo, newDeviceInfo);
+                    
+                    // 계절 효과 재생성
+                    if (currentSeason === 'winter' && snowEnabled) {
+                        removeSnow();
+                        createSnow();
+                    } else if (currentSeason === 'autumn' && leavesEnabled) {
+                        removeLeaves();
+                        createLeaves();
+                    }
+                }
             });
         }
         
