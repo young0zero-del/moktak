@@ -881,14 +881,12 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.min.js"></script>
 
     <script>
-        // Three.js 로딩 대기
-        if (typeof THREE === 'undefined') {
-            console.error('❌ Three.js 로드 실패 - CDN 문제');
-        }
-    </script>
-
-    <script>
         console.log('🎬 목탁 앱 시작');
+        
+        // 즉시 로딩 상태 확인
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('📄 DOM 준비 완료');
+        });
         
         // 디바이스 감지 유틸리티
         const DeviceDetector = {
@@ -965,18 +963,20 @@
                     return;
                 }
                 
+                console.log('⏳ Three.js 로딩 대기 중...');
                 let attempts = 0;
-                const maxAttempts = 50; // 5초
+                const maxAttempts = 30; // 3초로 단축
                 const checkInterval = setInterval(() => {
                     attempts++;
+                    console.log('🔍 Three.js 확인 중... (' + attempts + '/' + maxAttempts + ')');
                     if (typeof THREE !== 'undefined') {
                         console.log('✅ Three.js 로드 완료:', THREE.REVISION);
                         clearInterval(checkInterval);
                         resolve();
                     } else if (attempts >= maxAttempts) {
-                        console.error('❌ Three.js 로드 타임아웃');
+                        console.error('❌ Three.js 로드 타임아웃 (3초 초과)');
                         clearInterval(checkInterval);
-                        reject(new Error('Three.js 로드 실패'));
+                        reject(new Error('Three.js 로드 실패 - CDN 접속 확인 필요'));
                     }
                 }, 100);
             });

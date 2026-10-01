@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로딩 테스트</title>
+</head>
+<body>
+    <h1>로딩 테스트</h1>
+    <div id="status">테스트 시작...</div>
+    <div id="logs"></div>
+    
+    <script>
+        const logs = document.getElementById('logs');
+        const status = document.getElementById('status');
+        
+        function log(msg) {
+            console.log(msg);
+            logs.innerHTML += '<p>' + msg + '</p>';
+        }
+        
+        log('1. HTML 로드됨');
+        
+        window.addEventListener('load', () => {
+            log('2. window.onload 실행됨');
+            status.textContent = '✅ JavaScript 작동 중';
+        });
+        
+        // Three.js 로드 테스트
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.min.js';
+        script.onload = () => {
+            log('3. Three.js 로드 성공: ' + (typeof THREE !== 'undefined' ? 'OK' : 'FAIL'));
+        };
+        script.onerror = () => {
+            log('❌ Three.js 로드 실패');
+        };
+        document.head.appendChild(script);
+    </script>
+</body>
+</html>
