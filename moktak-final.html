@@ -1190,8 +1190,10 @@
                 100
             );
             
-            // 모바일에서는 카메라를 더 가까이 (목탁이 더 크게 보임)
+            // 모바일 체크 및 카메라 설정
             const isMobile = window.innerWidth <= 768;
+            
+            // 모바일에서는 카메라를 더 가까이 (목탁이 더 크게 보임)
             if (isMobile) {
                 camera.position.set(0, 1.5, 2.2);  // z: 3 → 2.2 (더 가까이)
             } else {
@@ -1209,7 +1211,6 @@
             
             // 모바일 vs 데스크톱 크기 설정
             const container = document.getElementById('canvas-container');
-            const isMobile = window.innerWidth <= 768;
             let width, height;
             
             if (isMobile) {
